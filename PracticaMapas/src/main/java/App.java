@@ -101,13 +101,13 @@ public class App {
         String nombre = Console.getString("Título del libro: ");
         String isbn = Console.getString("Isbn: ");
         String idioma = Console.getString("Idioma: ");
-        //float precio = Console.getFloat();
+        float precio = Console.getFloat("Introduzca el precio del libro: ");
 
         Libro libro = new Libro()
                 .nombre(nombre)
                 .isbn(isbn)
-                .idioma(idioma);
-                //.precio(precio)
+                .idioma(idioma)
+                .precio(precio);
         try{
             var res = controller.crearLibro(libro);
             System.out.println("Libro creado correctamente: ");
