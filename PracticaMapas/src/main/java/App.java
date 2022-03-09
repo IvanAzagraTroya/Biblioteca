@@ -1,6 +1,5 @@
 import comparators.LibroNombreComparator;
 import controllers.LibroController;
-import exceptions.LibroException;
 import models.Libro;
 import utils.Console;
 
@@ -73,7 +72,8 @@ public class App {
             String nuevoNombre = Console.getString("Nuevo título (anterior: "+existe.getNombre()+"): ");
             nuevoNombre = (nuevoNombre.isEmpty()) ? existe.getNombre() : nuevoNombre;
 
-            var update = existe.clone().nombre(nuevoNombre);//.precio(nuevoPrecio);
+            float nuevoPrecio = Console.getFloat("Nuevo precio: ");
+            var update = existe.clone().nombre(nuevoNombre).precio(nuevoPrecio);
 
             var res = controller.updateLibro(existe.getNombre(), update);
             System.out.println("Libro actualizado");
